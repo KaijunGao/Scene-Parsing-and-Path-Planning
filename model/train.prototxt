@@ -1705,7 +1705,31 @@ layer {
   top: "accuracy"
   top: "per_class_accuracy"
 }
-
+layer {
+  name: "inner_product"
+  type: "InnerProduct"
+  bottom: "conv7_2"
+  top: "inner_product"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 1
+  }
+  inner_product_param {
+  	#kernel_size: 1
+	num_output: 10
+    weight_filler {
+      type: "xavier"
+	}
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
 layer {
   name: "loss2"
   type: "SoftmaxWithLoss"
