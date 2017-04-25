@@ -1,2 +1,3 @@
 # Scene-Parsing-and-Path-Planning
-caffe
+This project is produced by caffe.
+Produceing the scene parsing and path planning in the same net.
